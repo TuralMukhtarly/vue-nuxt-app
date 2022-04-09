@@ -7,18 +7,18 @@
       <div class="title">Today I need to</div>
       <div style="display: flex" class="inp">
         <input
+          v-model="newTask"
           type="text"
           placeholder="Add new todo..."
-          v-model="newTask"
           @keypress.enter="addTask"
         />
         <button @click="addTask">Submit</button>
       </div>
 
       <div class="todos">
-        <div class="todo" v-for="(task, i) in $store.state.tasks" :key="i">
+        <div v-for="(task, i) in $store.state.tasks" :key="i" class="todo">
           <img src="../assets/img/frame.png" alt="" style="background: white" />
-          <input type="checkbox" name="" id="" :checked="task.done" />
+          <input id="" type="checkbox" name="" :checked="task.done" />
           <span style="background: white">{{ task.content }}</span>
           <img
             style="background: white"
